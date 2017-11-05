@@ -42,7 +42,7 @@
          */
         public function __construct($status, string $msg = ""){
             $this->status = $status;
-            $this->msg = $msg;
+            $this->msg = $msg; 
         }
 
     }
