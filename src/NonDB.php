@@ -54,6 +54,28 @@
         }
 
         /**
+         * Configure
+         *
+         * @var array
+         * 
+         */
+        protected $config = [];
+        
+        /**
+         * Constructor
+         *
+         * @param \NonDB\Interfaces\Driver $driver
+         * @param array $config
+         * 
+         */
+        public function __construct(\NonDB\Interfaces\Driver $driver, $config = []){
+
+            $this->setDriver($driver);
+            $this->config($config);
+
+        }
+
+        /**
          * Get the table.
          * 
          * @param string $table 
@@ -76,6 +98,27 @@
         public function setDriver(\NonDB\Interfaces\Driver $driver){
             
             $this->driver($driver);
+
+            return $this;
+
+        }
+
+        /**
+         * Configure NonDB
+         *
+         * @param mixed $config
+         * @param string $val
+         * 
+         * @return self
+         * 
+         */
+        public function config($config, $val = ""){
+
+            if(is_array($config)){
+                $this->config = array_merge($this->config, $config);
+            }else{
+                $this->config[$config] = $val;
+            }
 
             return $this;
 

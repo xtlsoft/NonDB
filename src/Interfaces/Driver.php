@@ -18,6 +18,7 @@
     /**
      * Driver Interface
      * 
+     * @method void __construct()
      * @method mixed getData()
      * @method \NonDB\Components\Status setData()
      * @method \NonDB\Components\Status addTable()
@@ -25,6 +26,14 @@
      * 
      */
     interface Driver {
+
+        /**
+         * Constructor
+         *
+         * @param string $param
+         * 
+         */
+        public function __construct(string $param);
 
         /**
          * Get a table's data
