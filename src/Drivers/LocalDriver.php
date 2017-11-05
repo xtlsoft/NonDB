@@ -81,7 +81,7 @@
                 }else{
                     $status = false;
                 }
-                
+                return new \NonDB\Components\Status($status);
             }else{
                 throw new \NonDB\Exceptions\DriverException('Table Not Exists.', 1002);
             }
@@ -99,7 +99,9 @@
          */
         public function newTable(string $name){
             
-            
+            $status = file_put_contents($file = $this->base . '/' . $name . '.json', "[]");
+
+            return new \NonDB\Components\Status($status);
 
         }
         
@@ -113,6 +115,10 @@
          * 
          */
         public function removeTable(string $name){
+
+            $status = unlink($file = $this->base . '/' . $name . '.json');
+            
+            return new \NonDB\Components\Status($status);
 
         }
 
