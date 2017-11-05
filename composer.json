@@ -1,0 +1,20 @@
+{
+    "name": "xtlsoft/nondb",
+    "description": "A NoSQL Database Based On Json Storage.",
+    "type": "library",
+    "require": {
+        "php": ">=5.4"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "xtl",
+            "email": "xtl@xtlsoft.top"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "NonDB\\" : "./src/"
+        }
+    }
+}
