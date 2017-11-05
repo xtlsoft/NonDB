@@ -66,15 +66,25 @@
          * Set a table's data
          *
          * @param string $table
-         * @param \NonDB\Components\Different $diff
+         * @param mixed[] $data
          * @throws \NonDB\Exceptions\DriverException
          * 
          * @return \NonDB\Components\Status
          * 
          */
-        public function setData(string $table, \NonDB\Components\Different $diff){
+        public function setData(string $table, $data){
             
-            
+            $file = $this->base . '/' . $table . '.json';
+            if(file_exists($file)){
+                if(file_put_contents($file, json_encode($data))){
+                    $status = true;
+                }else{
+                    $status = false;
+                }
+                
+            }else{
+                throw new \NonDB\Exceptions\DriverException('Table Not Exists.', 1002);
+            }
 
         }
         
@@ -89,6 +99,8 @@
          */
         public function newTable(string $name){
             
+            
+
         }
         
         /**

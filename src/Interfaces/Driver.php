@@ -51,13 +51,13 @@
          * Set a table's data
          *
          * @param string $table
-         * @param \NonDB\Components\Different $diff
+         * @param mixed[] $data
          * @throws \NonDB\Exceptions\DriverException
          * 
          * @return \NonDB\Components\Status
          * 
          */
-        public function setData(string $table, \NonDB\Components\Different $diff);
+        public function setData(string $table, $data);
 
         /**
          * Add a table
