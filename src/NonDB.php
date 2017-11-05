@@ -47,7 +47,7 @@
             }
 
             //Get driver.
-            $driver = eval("return new $name(\$param);");
+            $driver = eval("return new $class(urldecode(\$param));");
 
             return $driver;
 

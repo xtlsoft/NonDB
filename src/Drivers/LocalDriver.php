@@ -33,7 +33,7 @@
          * 
          */
         public function __construct(string $param){
-
+            
             if(is_dir($param))
                 $this->base = $param;
             else
@@ -55,7 +55,7 @@
             
             $file = $this->base . '/' . $table . '.json';
             if(file_exists($file)){
-                return file_get_contents($file);
+                return json_decode(file_get_contents($file), true);
             }else{
                 throw new \NonDB\Exceptions\DriverException('Table Not Exists.', 1002);
             }
