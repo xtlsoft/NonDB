@@ -17,6 +17,15 @@
 
     class Tool {
 
+        /**
+         * Check the class implement
+         *
+         * @param mixed $class
+         * @param string $interface
+         * 
+         * @return void
+         * 
+         */
         public static function checkImplement($class, string $interface){
             $ref = new \ReflectionClass($class);
             $names = $ref->getInterfaceNames();
