@@ -60,6 +60,14 @@
          * 
          */
         protected $config = [];
+
+        /**
+         * Driver
+         *
+         * @var \NonDB\Interfaces\Driver
+         * 
+         */
+        protected $driver;
         
         /**
          * Constructor
@@ -84,7 +92,7 @@
          */
         public function table(string $table = "default"){
             
-            return new \NonDB\Table($table);
+            return (new \NonDB\Table($table))->setParent($this);
 
         }
         
@@ -97,7 +105,7 @@
          */
         public function setDriver(\NonDB\Interfaces\Driver $driver){
             
-            $this->driver($driver);
+            $this->driverc = $driver;
 
             return $this;
 

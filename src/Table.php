@@ -14,3 +14,66 @@
      */
 
     namespace NonDB;
+
+    class Table {
+
+        use \NonDB\Components\ParentClass;
+
+        /**
+         * Name of the table
+         *
+         * @var string
+         * 
+         */
+        protected $name;
+
+        /**
+         * The data
+         *
+         * @var array
+         * 
+         */
+        protected $data;
+
+        /**
+         * Constructor
+         *
+         * @param mixed $name
+         * 
+         */
+        public function __construct(string $name){
+
+            $this->name = $name;
+            $this->sync();
+
+        }
+
+        /**
+         * Sync the data
+         *
+         * @return self
+         * 
+         */
+        public function sync(){
+
+            $this->data = $this->parent->driver->getData($this->name);
+
+            return $this;
+
+        }
+
+        /**
+         * Save the data
+         *
+         * @return self
+         * 
+         */
+        public function save(){
+
+            $this->parent->driver->setData($this->name, $this->data);
+
+            return $this;
+
+        }
+
+    }
