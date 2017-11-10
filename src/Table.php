@@ -18,6 +18,7 @@
     class Table {
 
         use \NonDB\Components\ParentClass;
+        use \NonDB\Components\Data;
 
         /**
          * Name of the table
