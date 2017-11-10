@@ -15,10 +15,11 @@
 
     namespace NonDB;
 
-    class Table {
+    class Table implements \ArrayAccess {
 
         use \NonDB\Components\ParentClass;
         use \NonDB\Components\Data;
+        use \NonDB\Components\ArrayAccess;
 
         /**
          * Name of the table

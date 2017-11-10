@@ -27,7 +27,8 @@
         protected $key;
 
         public function get($key) {return $this->__get($key);}
-        public function set($key, $val) {return $this->__set($val);}
+        public function set($key, $val) {$this->__set($key, $val); return $this;}
+        public function unset($key) {$this->__unset($key); return $this;}
 
         /**
          * Get the data
@@ -44,6 +45,18 @@
             }else{
                 return $this->data[$key];
             }
+
+        }
+
+        /**
+         * Unset A Key
+         *
+         * @param mixed $key
+         * 
+         */
+        public function __unset($key){
+
+            unset($this->data[$key]);
 
         }
 

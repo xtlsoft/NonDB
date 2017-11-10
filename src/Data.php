@@ -15,10 +15,11 @@
 
     namespace NonDB;
 
-    class Data {
+    class Data implements \ArrayAccess{
 
         use \NonDB\Components\ParentClass;
         use \NonDB\Components\Data;
+        use \NonDB\Components\ArrayAccess;
 
         /**
          * Constructor
