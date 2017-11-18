@@ -35,7 +35,7 @@
          * @var array
          * 
          */
-        protected $data;
+        public $data;
 
         /**
          * Constructor

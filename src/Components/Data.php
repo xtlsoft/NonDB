@@ -23,7 +23,7 @@
          * @var mixed $data
          * 
          */
-        protected $data;
+        public $data;
         protected $key;
 
         public function get($key) {return $this->__get($key);}
