@@ -46,7 +46,9 @@
         public function __construct(string $name){
 
             $this->name = $name;
-            $this->sync();
+            $this->parentCallback = function(){
+                $this->sync();
+            };
 
         }
 

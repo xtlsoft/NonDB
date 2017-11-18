@@ -15,7 +15,7 @@
 
     namespace NonDB\Components;
 
-    class ArrayAccess {
+    trait ArrayAccess {
 
         /**
          * Check whether an offset defined

@@ -23,6 +23,13 @@
          * @var mixed
          */
         private $parent;
+        
+        /**
+         * Callback after set parentClass
+         *
+         * @var callable
+         */
+        private $parentCallback = null;
 
         /**
          * Set the parent
@@ -35,6 +42,10 @@
         public function setParent($parent){
 
             $this->parent = $parent;
+
+            if($this->parentCallback){
+                call_user_func($this->parentCallback);
+            }
 
             return $this;
 

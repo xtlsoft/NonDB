@@ -8,6 +8,9 @@
     
     require_once "vendor/autoload.php";
 
-    $driver = \NonDB\NonDB::driver('LocalDriver:'. urlencode(__DIR__ .'/data/'));
+    use \NonDB\NonDB;
 
-    var_dump( $driver->getData('test') );
+    $driver = NonDB::driver('LocalDriver:'. urlencode(__DIR__ .'/data/'));
+    $db = new NonDB($driver);
+
+    var_dump( $db->table("test")[0] );

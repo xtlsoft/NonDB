@@ -59,7 +59,7 @@
          * @var array
          * 
          */
-        protected $config = [];
+        public $config = [];
 
         /**
          * Driver
@@ -67,7 +67,7 @@
          * @var \NonDB\Interfaces\Driver
          * 
          */
-        protected $driver;
+        public $driver;
         
         /**
          * Constructor
@@ -105,7 +105,7 @@
          */
         public function setDriver(\NonDB\Interfaces\Driver $driver){
             
-            $this->driverc = $driver;
+            $this->driver = $driver;
 
             return $this;
 
