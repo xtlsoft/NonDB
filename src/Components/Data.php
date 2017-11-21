@@ -88,5 +88,17 @@
             return $this->data;
 
         }
+        
+        /**
+         * Make it countable.
+         * 
+         * @return int
+         * 
+         */
+        public function count(){
+            
+            return count($this->data);
+            
+        }
 
     }
