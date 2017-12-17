@@ -15,7 +15,7 @@
 
     namespace NonDB;
 
-    class Data implements \ArrayAccess{
+    class Data implements \ArrayAccess, \Countable{
 
         use \NonDB\Components\ParentClass;
         use \NonDB\Components\Data;
