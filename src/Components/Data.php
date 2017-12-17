@@ -89,4 +89,85 @@
 
         }
 
+        /**
+         * Create a data collection
+         *
+         * @param string $name
+         * 
+         * @return \NonDB\Data
+         * 
+         */
+        public function create($name){
+
+            $this->data[$name] = [];
+
+            return $this->{$name};
+
+        }
+
+        /**
+         * Get one of the data.
+         *
+         * @return \NonDB\data
+         * 
+         */
+        public function findOne(){
+
+            foreach($this->data as $k=>$v){
+                $key = $k;
+                break;
+            }
+
+            if(is_array($this->data[$key])){
+                return (new \NonDB\Data($this->data[$key], $key))->setParent($this);
+            }else{
+                return $this->data[$key];
+            }
+
+        }
+        
+        /**
+         * Find something
+         *
+         * @param Callable $rule
+         * 
+         * @return array
+         * 
+         */
+        public function where($rule){
+
+            $r = [];
+
+            foreach($this->data as $k=>$v){
+                if($rule($v)){
+                    $r[] = $this->{$k};
+                }
+            }
+
+            return $r;
+
+        }
+
+        /**
+         * Find something by the key
+         *
+         * @param Callable $rule
+         * 
+         * @return array
+         * 
+         */
+        public function whereKey($rule){
+
+            $r = [];
+
+            foreach($this->data as $k=>$v){
+                if($rule($k)){
+                    $r[] = $this->{$k};
+                }
+            }
+
+            return $r;
+
+        }
+
     }
