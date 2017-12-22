@@ -54,6 +54,43 @@
         }
 
         /**
+         * Find something
+         *
+         * @param string $key
+         * @param string $value
+         * 
+         * @return Callable
+         * 
+         */
+        public static function where(string $key, string $value){
+
+            return function($compare) use ($key, $value){
+
+                return (@$compare[$key] == $value);
+
+            };
+
+        }
+
+        /**
+         * Find A Value By Key
+         *
+         * @param string $key
+         * 
+         * @return Callable
+         * 
+         */
+        public static function whereByKey(string $key){
+
+            return function($compare) use ($key) {
+
+                return ($compare == $key);
+
+            };
+
+        }
+
+        /**
          * Configure
          *
          * @var array

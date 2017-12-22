@@ -52,6 +52,25 @@
         }
 
         /**
+         * Set a callback
+         *
+         * @param Callable $callback
+         * @param bool $force
+         * 
+         * @return self
+         * 
+         */
+        public function setCallback(Callable $callback, bool $force = false){
+
+            if($force || !$this->parentCallback){
+                $this->parentCallback = $callback;
+            }
+            
+            return $this;
+
+        }
+
+        /**
          * Get the parent
          *
          * @return mixed

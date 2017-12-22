@@ -101,7 +101,6 @@
             
         }
 
-<<<<<<< HEAD
         /**
          * Create a data collection
          *
@@ -147,12 +146,12 @@
          * @return array
          * 
          */
-        public function where($rule){
+        public function find($rule){
 
             $r = [];
 
             foreach($this->data as $k=>$v){
-                if($rule($v)){
+                if($rule($this->{$k})){
                     $r[] = $this->{$k};
                 }
             }
@@ -169,7 +168,7 @@
          * @return array
          * 
          */
-        public function whereKey($rule){
+        public function findByKey($rule){
 
             $r = [];
 
@@ -183,7 +182,33 @@
 
         }
 
+        /**
+         * Sort The Data
+         * 
+         * @param Callable $rule
+         * 
+         * @throws \NonDB\Exceptions\DataException
+         * 
+         * @return \NonDB\Data
+         * 
+         */
+        public function sort($rule, $algorithm){
+
+            $class = "\\NonDB\\Sorter\\" . $algorithm;
+
+            if(!class_exists($class) || !( \NonDB\Components\Tool::checkImplement($class, "NonDB\\Interfaces\\Sorter") )){
+                throw new \NonDB\Exceptions\DataException("Sorter $class wasn't exists.", "0011");
+                return false;
+            }
+
+            $sorter = eval("return new ". $class . "(\$rule)");
+
+            $sorted = $sorter->sort($this->getArray());
+
+            $result = (new \NonDB\Data($sorted, $this->key))->setParent($this->parent);
+
+            return $result;
+
+        }
+
     }
-=======
-    }
->>>>>>> a00102270f7caa0fd34bdda784d7929ab733bdba
