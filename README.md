@@ -1,9 +1,7 @@
 # NonDB
 NonDB Stands for None DB.
 
-<a target='_blank' rel='nofollow' href='https://app.codesponsor.io/link/LQVGXd8hRJzARgnATLK2MzMf/xtlsoft/NonDB'>
-  <img alt='Sponsor' width='888' height='68' src='https://app.codesponsor.io/embed/LQVGXd8hRJzARgnATLK2MzMf/xtlsoft/NonDB.svg' />
-</a>
+
 
 ## Install 安装
 ```sh
