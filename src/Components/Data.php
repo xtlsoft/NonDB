@@ -212,4 +212,18 @@
 
         }
 
+        /**
+         * Dump It!
+         *
+         * @param int $type
+         * 
+         * @return mixed
+         * 
+         */
+        public function dump($type = \NonDB\Components\Dump::DUMP_VAR_DUMP){
+
+            return \NonDB\Components\Dump::dump($this->getArray(), $type);
+
+        }
+
     }

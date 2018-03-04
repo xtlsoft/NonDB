@@ -13,6 +13,6 @@
     $driver = NonDB::driver('LocalDriver:./data/');
     $db = new NonDB($driver);
 
-    $tbl = $db->table("test");
+    echo $db->table("test")->dump(\NonDB\Components\Dump::DUMP_VAR_EXPORT);
 
     
