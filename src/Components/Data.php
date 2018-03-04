@@ -186,22 +186,23 @@
          * Sort The Data
          * 
          * @param Callable $rule
+         * @param string $algorithm
          * 
          * @throws \NonDB\Exceptions\DataException
          * 
          * @return \NonDB\Data
          * 
          */
-        public function sort($rule, $algorithm){
+        public function sort($rule, $algorithm = "DefaultSort"){
 
             $class = "\\NonDB\\Sorter\\" . $algorithm;
 
             if(!class_exists($class) || !( \NonDB\Components\Tool::checkImplement($class, "NonDB\\Interfaces\\Sorter") )){
-                throw new \NonDB\Exceptions\DataException("Sorter $class wasn't exists.", "0011");
+                throw new \NonDB\Exceptions\DataException("Sorter $class didn't exists.", "0011");
                 return false;
             }
 
-            $sorter = eval("return new ". $class . "(\$rule)");
+            $sorter = eval("return new ". $class . "(\$rule);");
 
             $sorted = $sorter->sort($this->getArray());
 

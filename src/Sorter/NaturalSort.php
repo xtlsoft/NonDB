@@ -15,7 +15,7 @@
 
     namespace NonDB\Sorter;
 
-    class QuickSort implements \NonDB\Interfaces\Sorter {
+    class NaturalSort implements \NonDB\Interfaces\Sorter {
 
         /**
          * Rule
@@ -48,13 +48,14 @@
          */
         public function sort($data){
 
-            $count = count($data);
+            $rule = call_user_func($this->rule);
+            if($rule === "desc"){
+                arsort($data, SORT_NATURAL);
+            }else{
+                asort($data, SORT_NATURAL);
+            }
 
-            if($count <= 1) return $data;
-
-            $left = $right = [];
-
-            return $sorted;
+            return $data;
 
         }
 

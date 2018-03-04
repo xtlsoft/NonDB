@@ -13,24 +13,30 @@
      * 
      */
 
-    namespace NonDB\Interfaces;
+    namespace NonDB\Sorter;
 
-    /**
-     * Sorter Interface
-     * 
-     * @method void __construct()
-     * @method mixed sort()
-     * 
-     */
-    interface Sorter {
+    class DefaultSort implements \NonDB\Interfaces\Sorter {
+
+        /**
+         * Rule
+         *
+         * @var Callable
+         */
+        protected $rule;
 
         /**
          * Constructor
          *
          * @param Callable $rule
          * 
+         * @return void
+         * 
          */
-        public function __construct($rule);
+        public function __construct($rule){
+
+            $this->rule = $rule;
+
+        }
 
         /**
          * Sort it.
@@ -40,6 +46,12 @@
          * @return mixed
          * 
          */
-        public function sort($data);
+        public function sort($data){
+
+            uasort($data, $this->rule);
+
+            return $data;
+
+        }
 
     }
