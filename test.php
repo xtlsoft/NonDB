@@ -15,6 +15,4 @@
 
     $tbl = $db->table("test");
 
-    $tbl->files = $tbl->files->sort(function(){return "desc";}, "NaturalSort");
-
-    $tbl->save();
+    

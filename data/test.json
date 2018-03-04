@@ -1,1 +1,1 @@
-{"test1":[[1,2],[2,1],[221,123],[1332,0],[321,123]],"files":{"4":"100-swoole.ini","1":"50-mysql.ini","2":"45-datagird.ini","0":"10-mbstring.ini","3":"3-php.ini"}}
+{"test1":[[1,2],[2,1],[221,123],[1332,0],[321,123]],"files":{"4":"100-swoole.ini","1":"50-mysql.ini","2":"45-datagird.ini","0":"10-mbstring.ini","3":"3-php.ini"},"_NonDB_System_":{"_AutoIncrement_":10002}}

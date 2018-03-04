@@ -80,4 +80,23 @@
 
         }
 
+        /**
+         * Get Auto-Increment Number
+         * 
+         * @return int
+         * 
+         */
+        function autoincrement(){
+            
+            if(!isset($this->data['_NonDB_System_']['_AutoIncrement_'])){
+                $this->data['_NonDB_System_']['_AutoIncrement_'] = 1;
+            }
+
+            $number = ($this->data['_NonDB_System_']['_AutoIncrement_'] ++);
+            $this->save();
+
+            return $number;
+
+        }
+
     }
